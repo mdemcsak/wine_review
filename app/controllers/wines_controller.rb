@@ -1,6 +1,6 @@
 class WinesController < ApplicationController
 	def index
-		@wines = Wine.order(:name).page(params[:page])
+        @wines = Wine.includes(:log_entries).order(:name).page(params[:page])
 	end
 
 	def show
